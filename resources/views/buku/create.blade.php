@@ -16,7 +16,7 @@
                 {{-- dropdown rakbuku --}}
                 <div class="dropdown">
                     <div class="btn-group">
-                            <select id="rak-dropdown" class="form-control" name="id rak">
+                            <select id="rak-dropdown" class="form-control" name="rakbuku_id">
                                 <option value="">-- Pilih Rak Buku --</option>
                                 @foreach ($rakbuku as $data) 
                                 <option value="{{$data->id}}">
@@ -32,7 +32,7 @@
                 {{-- dropdown kategoribuku --}}
                 <div class="dropdown">
                     <div class="btn-group">
-                        <select id="kategori-dropdown" class="form-control" name="id kategori">
+                        <select id="kategori-dropdown" class="form-control" name="kategoribuku_id">
                             <option value="">-- Pilih Kategori Buku--</option>
                             @foreach ($kategoribuku as $data)
                             <option value="{{$data->id}}">

@@ -25,12 +25,13 @@ class BukuModel extends Model
     {
         return $this->HasOne(AnggotaModel::class, 'buku_id');
     }
-    public function kategoribuku()
-    {
-        return $this->belongsTo(KategoriModel::class, 'kategoribuku_id');
-    }
     public function rakbuku()
     {
         return $this->belongsTo(RakModel::class, 'rakbuku_id');
     }
+    public function kategoribuku()
+    {
+        return $this->belongsTo(KategoriModel::class, 'kategoribuku_id');
+    }
+    
 }

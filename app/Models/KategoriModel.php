@@ -22,4 +22,8 @@ class KategoriModel extends Model
     {
         return $this->HasOne(RakModel::class, 'kategoribuku_id');
     }
+    public function buku()
+    {
+        return $this->HasMany(BukuModel::class, 'kategoribuku_id');
+    }
 }

@@ -27,7 +27,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
@@ -57,10 +57,15 @@
                             </td> --}}
 
                                 {{-- Tombol Delete --}}
-                                <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                <form action="{{ route('buku.destroy', $buku->id) }}" method="POST" class="d-inline">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Anda Yakin Menghapus Data Ini?')">
                                 <i class="fas fa-trash"></i>
-                                </a>
-
+                                </button>
+                                </form>
+                               
+                                
                                 {{-- Tombol Edit --}}
                                 <a href="{{ route('buku.edit',$buku->id) }}" class="btn btn-primary btn-circle btn-sm">
                                 <i class="fas fa-edit"></i>

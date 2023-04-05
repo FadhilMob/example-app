@@ -25,8 +25,8 @@ class StoreBukuRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'kategoribuku_id' => 'required',
-            // 'rakbuku_id' => 'required',
+            'kategoribuku_id' => 'required',
+            'rakbuku_id' => 'required',
             'kode_isbn' => 'required|string',
             'judul_buku' => 'required|string',
             'pengarang' => 'required|string'
@@ -35,8 +35,8 @@ class StoreBukuRequest extends FormRequest
     public function messages()
     {
         return [
-            'kategoribuku_id.required' => 'Kode ISBN Harus Diisi',
-            'rakbuku_id.required' => 'Kode ISBN Harus Diisi',
+            'kategoribuku_id.required' => 'Kategori Harus Dipilih',
+            'rakbuku_id.required' => 'Rak Harus Dipilih',
             'kode_isbn.required' => 'Kode ISBN Harus Diisi',
             'judul_buku.required' => 'Judul Buku Harus Diisi',
             'pengarang.required' => 'Nama Pengarang Harus Diisi'

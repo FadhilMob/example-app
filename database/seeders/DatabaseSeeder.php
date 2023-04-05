@@ -45,17 +45,17 @@ class DatabaseSeeder extends Seeder
         // ISI KATEGORI MODEL
         KategoriModel::create([
             'kategori_buku' => 'Ilmu Murni',
-            'total' => '122'
+            'total' => '100'
         ]);
 
         KategoriModel::create([
             'kategori_buku' => 'Ilmu Hukum',
-            'total' => '102'
+            'total' => '200'
         ]);
 
         KategoriModel::create([
             'kategori_buku' => 'Fiksi',
-            'total' => '190'
+            'total' => '300'
         ]);
         
 

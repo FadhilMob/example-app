@@ -23,4 +23,8 @@ class RakModel extends Model
     {
         return $this->belongsTo(KategoriModel::class, 'kategoribuku_id');
     }
+    public function buku()
+    {
+        return $this->HasOne(BukuModel::class, 'rakbuku_id');
+    }
 }
