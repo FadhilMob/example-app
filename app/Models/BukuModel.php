@@ -14,17 +14,19 @@ class BukuModel extends Model
         'kategoribuku_id',
         'kode_isbn',
         'judul_buku',
-        'pengarang'
+        'pengarang',
+        'image',
+        'dokumen'
         
     ];
     // protected static function newSeed(): Seeder
     // {
     //     return DatabaseSeeder::new();
     // }
-    public function anggota()
-    {
-        return $this->HasOne(AnggotaModel::class, 'buku_id');
-    }
+    // public function anggota()
+    // {
+    //     return $this->HasOne(AnggotaModel::class, 'buku_id');
+    // }
     public function rakbuku()
     {
         return $this->belongsTo(RakModel::class, 'rakbuku_id');

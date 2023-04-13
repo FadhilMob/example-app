@@ -8,6 +8,8 @@ use App\Models\BukuModel;
 use App\Models\RakModel;
 use App\Models\KategoriModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 
 class BukuController extends Controller
 {
@@ -53,13 +55,30 @@ class BukuController extends Controller
 
     public function store(StoreBukuRequest $request)
     {
-        $data=$request->only([
-           'kategoribuku_id',
-            'rakbuku_id',
-            'kode_isbn',
-            'judul_buku',
-            'pengarang' 
-        ]);
+        // $data=$request->only([
+        //    'kategoribuku_id',
+        //     'rakbuku_id',
+        //     'kode_isbn',
+        //     'judul_buku',
+        //     'pengarang',
+        //     'image' 
+        // ]);
+
+        $data=$request->all();
+            // menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('image');
+            // nama file
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $tujuan_upload = 'storage/buku';
+            // upload file
+        $file->move($tujuan_upload,$nama_file);
+        $data['image'] = $nama_file;
+        
+        $file2 = $request->file('dokumen');
+        $nama_file2 = time()."_".$file2->getClientOriginalName();
+        $file2->move($tujuan_upload,$nama_file2);
+        $data['dokumen'] = $nama_file2;
+
         BukuModel::create($data);
         return redirect()->route('buku.index')->with('success', 'Data berhasil disimpan');
     }
@@ -87,15 +106,40 @@ class BukuController extends Controller
      */
     public function update(UpdateBukuRequest $request, BukuModel $buku)
     {
-        $data=$request->only([
-            'kategoribuku_id',
-             'rakbuku_id',
-             'kode_isbn',
-             'judul_buku',
-             'pengarang' 
-         ]);
-         $buku->update($data);
-         return redirect()->route('buku.index')->with('success', 'Data berhasil diedit');
+        // $data=$request->only([
+        //     'kategoribuku_id',
+        //      'rakbuku_id',
+        //      'kode_isbn',
+        //      'judul_buku',
+        //      'pengarang' 
+        //  ]);
+        //  $buku->update($data);
+        //  return redirect()->route('buku.index')->with('success', 'Data berhasil diedit');
+
+        $data=$request->all();
+            // menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('image');
+        if($file != '') {
+
+             // nama file
+        $nama_file = time()."_".$file->getClientOriginalName();
+        $tujuan_upload = 'storage/buku';
+            // upload file
+        $file->move($tujuan_upload,$nama_file);
+        $data['image'] = $nama_file;
+        File::delete('storage/buku/'.$buku->image);
+        }
+
+        $file2 = $request->file('dokumen');
+        if($file != '') {
+        $nama_file2 = time()."_".$file2->getClientOriginalName();
+        $file2->move($tujuan_upload,$nama_file2);
+        $data['dokumen'] = $nama_file2;
+        File::delete('storage/buku/'.$buku->dokumen);
+        }
+
+        $buku->update($data);
+        return redirect()->route('buku.index')->with('success', 'Data berhasil diedit');
     }
 
     /**

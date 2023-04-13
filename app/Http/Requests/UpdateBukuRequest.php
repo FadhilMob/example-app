@@ -30,6 +30,7 @@ class UpdateBukuRequest extends FormRequest
             'kode_isbn' => 'required|string',
             'judul_buku' => 'required|string',
             'pengarang' => 'required|string'
+            //'image' => 'required|string'
         ];
     }
     public function messages()
@@ -40,6 +41,7 @@ class UpdateBukuRequest extends FormRequest
             'kode_isbn.required' => 'Kode ISBN Harus Diisi',
             'judul_buku.required' => 'Judul Buku Harus Diisi',
             'pengarang.required' => 'Nama Pengarang Harus Diisi'
+            // 'image.required' => 'Image Harus Diinputkan'
         ];
     }
 }

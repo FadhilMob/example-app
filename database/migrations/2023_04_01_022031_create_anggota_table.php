@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('anggota', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('buku_id')->unsigned();
+            // $table->bigInteger('buku_id')->unsigned();
             $table->string('nama_anggota');
             $table->integer('kontak');
             $table->timestamps();
 
-            $table->foreign('buku_id')->references('id')->on('buku');
+            // $table->foreign('buku_id')->references('id')->on('buku');
         });
     }
 

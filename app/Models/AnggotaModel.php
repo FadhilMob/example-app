@@ -10,7 +10,7 @@ class AnggotaModel extends Model
     use HasFactory;
     protected $table = 'anggota';
     protected $fillable = [
-        'buku_id',
+        // 'buku_id',
         'nama_anggota',
         'kontak',
     ];
@@ -18,9 +18,9 @@ class AnggotaModel extends Model
     // {
     //     return DatabaseSeeder::new();
     // }
-    public function buku()
-    {
-        return $this->belongsTo(BukuModel::class, 'buku_id');
-    }
+    // public function buku()
+    // {
+    //     return $this->belongsTo(BukuModel::class, 'buku_id');
+    // }
 
 }

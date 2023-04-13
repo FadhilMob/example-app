@@ -8,7 +8,7 @@
     <h1>TAMBAHKAN BUKU</h1>
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('buku.store') }}" method="POST">
+            <form action="{{ route('buku.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     
@@ -36,7 +36,7 @@
                             <option value="">-- Pilih Kategori Buku--</option>
                             @foreach ($kategoribuku as $data)
                             <option value="{{$data->id}}">
-                                {{$data->kategoribuku}} - {{$data->total}}
+                                {{$data->kategori_buku}} - {{$data->total}}
                             </option>
                             @endforeach
                         </select>
@@ -79,6 +79,23 @@
                         </div>
                     @enderror
                 </div>
+
+                    {{-- Image --}}
+                    <label for="exampleInputEmail1">Image</label>
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="form-control" id="image" name="image">
+                        </div>
+                    </div>
+
+                    {{-- Dokumen --}}
+                    <label for="exampleInputEmail1">Dokumen</label>
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="form-control" id="dokumen" name="dokumen">
+                        </div>
+                    </div>
+
                     {{-- TOMBOL TAMBAH --}}   
                     <button type="submit" name="add" class="btn btn-md btn-success mt-2">SAVE</button>
                     {{-- TOMBOL BACK --}}

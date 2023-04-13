@@ -1,12 +1,12 @@
 @extends('sb-admin.index')
 
 @section('title')
-    SEAL | LIBRARY
+    DESA | LIBRARY
 @endsection
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
-        <h1>SELAMAT DATANG DI PERPUSTAKAAN SEAL</h1>
+        <h1>SELAMAT DATANG DI PERPUSTAKAAN DESA</h1>
 
         <!-- CARD COUNT BUKU -->
         <div class="row">
@@ -19,10 +19,10 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     ANGGOTA PERPUSTAKAAN</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">126</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">33</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                <i class="bi bi-people-fill fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -37,10 +37,10 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     TOTAL BUKU</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">561</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">51</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                <i class="bi bi-book fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -57,19 +57,19 @@
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">93</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">20</div>
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-sm mr-2">
                                             <div class="progress-bar bg-info" role="progressbar"
-                                                style="width: 17%" aria-valuenow="50" aria-valuemin="0"
+                                                style="width: 60%" aria-valuenow="25" aria-valuemin="0"
                                                 aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                <i class="bi bi-calendar-range fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -84,10 +84,10 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     PENGEMBALIAN</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">34</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                <i class="bi bi-calendar2-event fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -158,13 +158,13 @@
                         </div>
                         <div class="mt-4 text-center small">
                             <span class="mr-2">
-                                <i class="fas fa-circle text-primary"></i> ILMU MURNI
+                                <i class="fas fa-circle text-primary"></i> Administrasi
                             </span>
                             <span class="mr-2">
-                                <i class="fas fa-circle text-success"></i> FILSAFAT
+                                <i class="fas fa-circle text-success"></i> UMKM
                             </span>
                             <span class="mr-2">
-                                <i class="fas fa-circle text-info"></i> LAINNYA
+                                <i class="fas fa-circle text-info"></i> Lainnya
                             </span>
                         </div>
                     </div>

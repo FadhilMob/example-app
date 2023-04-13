@@ -8,7 +8,7 @@
     <h1>EDIT BUKU</h1>
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('buku.update', $buku->id) }}" method="POST">
+            <form action="{{ route('buku.update', $buku->id) }}" method="POST" enctype="multipart/form-data">
                 @method("PUT")
                 @csrf
                 <div class="mb-3">
@@ -37,7 +37,7 @@
                             <option value="">-- Pilih Kategori Buku--</option>
                             @foreach ($kategoribuku as $data)
                             <option value="{{$data->id}}">
-                                {{$data->kategoribuku}} - {{$data->total}}
+                                {{$data->kategori_buku}} - {{$data->total}}
                             </option>
                             @endforeach
                         </select>
@@ -79,8 +79,35 @@
                         </div>
                     @enderror
                 </div>
+
+                    {{-- Image --}}
+                    <label for="exampleInputEmail1">Image</label>
+                        <div class="col-md-12 mb-2">
+                            <img id="preview-image-before-upload" width="150px" src="{{ url('/storage/buku/'.$buku->image) }}"
+                            alt="preview image" style="max height: 200px;">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="form-control" id="image" name="image">
+                            </div>
+                        </div>
+
+                    {{-- Dokumen --}}
+                    <label for="exampleInputEmail1">Dokumen</label>
+                    <div class="col-md-12 mb-2">
+                        <a href="/storage/buku/{{$buku->dokumen}}" id="preview-dokumen-before-upload"
+                            alt="preview dokumen"><button class="btn btn-warning" type="button"><i class="bi bi-file-earmark-arrow-down-fill"></i>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="form-control" id="dokumen" name="dokumen">
+                        </div>
+                    </div>
+
                     {{-- TOMBOL TAMBAH --}}   
-                    <button type="submit" name="add" class="btn btn-md btn-success mt-2">SAVE</button>
+                    <button type="submit" name="add" class="btn btn-md btn-success mt-2">SAVE EDIT</button>
                     {{-- TOMBOL BACK --}}
                     <a href="{{ route('buku.index') }}" class="btn btn-md btn-secondary mt-2">BACK
                         {{-- <span class="text">Tambah</span> --}}
@@ -90,3 +117,28 @@
         </div>
     </div>
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+      
+    $(document).ready(function (e) {
+     
+       
+       $('#image').change(function(){
+                
+        let reader = new FileReader();
+     
+        reader.onload = (e) => { 
+     
+          $('#preview-image-before-upload').attr('src', e.target.result); 
+          $('#preview-dokumen-before-upload').attr('src', e.target.result); 
+        }
+     
+        reader.readAsDataURL(this.files[0]); 
+       
+       });
+       
+    });
+     
+    </script>
+    

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('kode_isbn');
             $table->string('judul_buku');
             $table->string('pengarang');
+            $table->string('image');
+            $table->string('dokumen');
             $table->timestamps();
 
             // Schema::table('buku', function (Blueprint $table) {

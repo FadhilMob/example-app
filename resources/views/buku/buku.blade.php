@@ -32,23 +32,30 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nomor Rak</th>
-                            <th scope="col">Total Kategori</th>
+                            <th scope="col">Kategori</th>
                             <th scope="col">ISBN</th>
                             <th scope="col">Judul Buku</th>
                             <th scope="col">Pengarang</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Dokumen</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($buku as $buku)
+                        @foreach ($buku as $key => $buku)
                         <tr>
-                            <td>{{ $buku->id }}</td>
+                            <th scope="row">{{ $key+1 }}</th>
                             <td>{{ $buku->rakbuku->nomor_rak }}</td>
-                            <td>{{ $buku->kategoribuku->total }}</td>
+                            <td>{{ $buku->kategoribuku->kategori_buku }}</td>
                             <td>{{ $buku->kode_isbn }}</td>
                             <td>{{ $buku->judul_buku }}</td>
                             <td>{{ $buku->pengarang }}</td>
-                            <td>
+                            <td align="center"> <img width="150px" height="200px" src="{{ url('/storage/buku/'.$buku->image) }}"></td>
+                            {{-- <td>{{ url('/storage/buku/'.$buku->dokumen) }}</td> --}}
+                            <td align="center"><a href="/storage/buku/{{$buku->dokumen }}">
+                                <button class="btn btn-success" type="button"><i class="bi bi-filetype-doc"></i>
+                                </button></a></td>
+                            <td align="center">
                                 {{-- <div class="btn-group">
                                     <a href="" class="btn btn-primary mr-2">Edit</a>
                                     <a href="" class="btn btn-danger mr-2">Hapus</a>
@@ -61,23 +68,24 @@
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Anda Yakin Menghapus Data Ini?')">
-                                <i class="fas fa-trash"></i>
+                                <i class="bi bi-trash3"></i>
                                 </button>
                                 </form>
                                
                                 
                                 {{-- Tombol Edit --}}
                                 <a href="{{ route('buku.edit',$buku->id) }}" class="btn btn-primary btn-circle btn-sm">
-                                <i class="fas fa-edit"></i>
+                                <i class="bi bi-pencil-square"></i>
                                 </a>
                                 
                                 {{-- Tombol Detail --}}
                                 <a href="{{ route('buku.show',$buku->id) }}" class="btn btn-info btn-circle btn-sm">
-                                <i class="fas fa-info-circle"></i>
+                                <i class="bi bi-info-square"></i>
                                 </a>
                             </td>
                         </tr>
                         @endforeach
+                        @include('sweetalert::alert')
                     </tbody>
                 </table>
             </div>
