@@ -96,6 +96,27 @@
                         </div>
                     </div>
 
+                     {{-- KETERANGAN --}}
+                {{-- <div class="form-group">
+                    <label for="keterangan">Keterangan</label>
+                    <input type="hidden" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" value="{{ old('keterangan')}}">
+                    <trix-editor input="keterangan"></trix-editor> --}}
+                    {{-- PESAN ERROR --}}
+                    {{-- @error('keterangan')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                    @enderror
+                </div> --}}
+
+                <div class="form-group">
+                    <label>Keterangan</label>
+                    <textarea id="summernote" class="form-control @error('keterangan') is-invalid @enderror" rows="4" name="keterangan">{{old('keterangan')}}</textarea>
+                    @error('content')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+
                     {{-- TOMBOL TAMBAH --}}   
                     <button type="submit" name="add" class="btn btn-md btn-success mt-2">SAVE</button>
                     {{-- TOMBOL BACK --}}
@@ -107,3 +128,15 @@
         </div>
     </div>
 @endsection
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script>
+    $(document).ready(function() {
+  $('#summernote').summernote();
+});
+</script>
+
+{{-- https://cdnjs.com/libraries/trix/1.2.4 --}}
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.4/trix.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.4/trix.js"></script> --}}

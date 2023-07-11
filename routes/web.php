@@ -41,9 +41,11 @@ Route::get('/kategoribuku',[KategoriController::class, 'index']);
 
 Route::get('/rakbuku',[RakController::class, 'index']);
 
+
 Route::resource('/buku/buku', BukuController::class);
 Route::resource('/buku/buku.buku', BukuController::class);
 Route::resource('/buku.create', BukuController::class);
 Route::resource('/buku.store', BukuController::class);
 Route::resource('/buku.update', BukuController::class);
-
+Route::get('/create-pdf', [BukuController::class, 'createPDF'])->name('create-pdf');
+Route::get('/buku/{id}/report', [BukuController::class, 'report'])->name('report');

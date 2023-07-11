@@ -16,7 +16,8 @@ class BukuModel extends Model
         'judul_buku',
         'pengarang',
         'image',
-        'dokumen'
+        'dokumen',
+        'keterangan'
         
     ];
     // protected static function newSeed(): Seeder

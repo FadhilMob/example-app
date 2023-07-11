@@ -29,9 +29,10 @@ class StoreBukuRequest extends FormRequest
             'rakbuku_id' => 'required',
             'kode_isbn' => 'required|string',
             'judul_buku' => 'required|string',
-            'pengarang' => 'required|string'
-            // 'image' => 'file|image|mimes:jpg,jpeg,png',
-            // 'dokumen' => 'file|dokumen|mimes:doc,docx,pdf,xls,xlsx,ppt,pptx'
+            'pengarang' => 'required|string',
+            'image' => 'file|image|mimes:jpg,jpeg,png',
+            'dokumen' => 'file',
+            'keterangan' => 'required'
         ];
     }
     public function messages()
@@ -41,8 +42,10 @@ class StoreBukuRequest extends FormRequest
             'rakbuku_id.required' => 'Rak Harus Dipilih',
             'kode_isbn.required' => 'Kode ISBN Harus Diisi',
             'judul_buku.required' => 'Judul Buku Harus Diisi',
-            'pengarang.required' => 'Nama Pengarang Harus Diisi'
-            //'image.required' => 'Image Harus Diinputkan'
+            'pengarang.required' => 'Nama Pengarang Harus Diisi',
+            'image.required' => 'Image Harus Diinputkan',
+            'dokumen.required' => 'Dokumen Harus Diinputkan',
+            'keterangan.required' => 'HARUS DIISI' 
         ];
     }
 }

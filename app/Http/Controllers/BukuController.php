@@ -9,7 +9,7 @@ use App\Models\RakModel;
 use App\Models\KategoriModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-
+use PDF;
 
 class BukuController extends Controller
 {
@@ -55,6 +55,7 @@ class BukuController extends Controller
 
     public function store(StoreBukuRequest $request)
     {
+        //  dd($request->all());
         // $data=$request->only([
         //    'kategoribuku_id',
         //     'rakbuku_id',
@@ -78,6 +79,8 @@ class BukuController extends Controller
         $nama_file2 = time()."_".$file2->getClientOriginalName();
         $file2->move($tujuan_upload,$nama_file2);
         $data['dokumen'] = $nama_file2;
+
+        // $buku->keterangan = $request->input('description');
 
         BukuModel::create($data);
         return redirect()->route('buku.index')->with('success', 'Data berhasil disimpan');
@@ -149,5 +152,20 @@ class BukuController extends Controller
     {
         $buku->delete($buku->id);
         return redirect()->route('buku.index')->with('success', 'Data berhasil dihapus');
+    }
+
+    public function createPDF()
+    {
+        $buku = BukuModel::all();
+        $pdf = PDF::loadView('buku.templatePDF', compact('buku'));
+        // download PDF file with download method
+        return $pdf->download('Data_Buku.pdf');
+    }
+
+    //PRINT TABEL
+    public function report($id){
+        $buku = BukuModel::find($id);
+        $pdf = PDF::loadview('buku.report',['buku'=>$buku]);
+        return $pdf->stream();
     }
 }

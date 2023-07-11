@@ -78,7 +78,8 @@ class DatabaseSeeder extends Seeder
             'judul_buku' => 'Pengantar bisnis',
             'pengarang' => 'Sattar, S.E., M.Si.',
             'image' => '1681003251_1 Pengantar Bisnis.jpg',
-            'dokumen' => ''
+            'dokumen' => '',
+            'keterangan' => ''
         ]);
         BukuModel::create([
             'rakbuku_id' => '3',
@@ -87,23 +88,28 @@ class DatabaseSeeder extends Seeder
             'judul_buku' => 'Dongeng-dongeng bintang',
             'pengarang' => 'Richard Scarry ; alihbahasa, Ramayanti B. Santoso',
             'image' => '1681003305_2 Dongeng Bintang.jpeg',
-            'dokumen' => ''
+            'dokumen' => '',
+            'keterangan' => ''
         ]);
-        // BukuModel::create([
-        //     'rakbuku_id' => '1',
-        //     'kategoribuku_id' => '1',
-        //     'kode_isbn' => '978-602-6733-09-2',
-        //     'judul_buku' => 'Kebangkitan pengusaha UMKM : membangun mental ownership-entrepreneur sejati bagi pengusaha UMKM',
-        //     'pengarang' => 'Titien Agustina',
-        //     'image' => '1681005606_3 UMKM.jpg'
-        // ]);
+        BukuModel::create([
+            'rakbuku_id' => '1',
+            'kategoribuku_id' => '1',
+            'kode_isbn' => '978-602-6733-09-2',
+            'judul_buku' => 'Kebangkitan pengusaha UMKM : membangun mental ownership-entrepreneur sejati bagi pengusaha UMKM',
+            'pengarang' => 'Titien Agustina',
+            'image' => '1681005606_3 UMKM.jpg',
+            'dokumen' => '',
+            'keterangan' => ''
+
+        ]);
         // BukuModel::create([
         //     'rakbuku_id' => '3',
         //     'kategoribuku_id' => '3',
         //     'kode_isbn' => '979-511-857-9',
         //     'judul_buku' => 'Dongeng Kancil',
         //     'pengarang' => 'E. Siswoyo',
-        //     'image' => '1681005627_4 Dongeng Kancil.jpg'
+        //     'image' => '1681005627_4 Dongeng Kancil.jpg',
+        //     'dokumen' => ''
         // ]);
         // BukuModel::create([
         //     'rakbuku_id' => '4',
@@ -111,7 +117,8 @@ class DatabaseSeeder extends Seeder
         //     'kode_isbn' => '978-979-039-598-5',
         //     'judul_buku' => 'Kisah teladan para nabi seri 5 : Nabi Ibrahim, Nabi Ayub, Nabi Zulkifli, Nabi Ilyas, Nabi Muhammad',
         //     'pengarang' => 'Ari Prabowo',
-        //     'image' => '1681005646_5 cerita.jpg'
+        //     'image' => '1681005646_5 cerita.jpg',
+        //     'dokumen' => ''
         // ]);
         // BukuModel::create([
         //     'rakbuku_id' => '1',
@@ -119,7 +126,8 @@ class DatabaseSeeder extends Seeder
         //     'kode_isbn' => '978-623-00-1160-3',
         //     'judul_buku' => 'UMKM 4.0 : strategi UMKM memasuki era digital 4.0',
         //     'pengarang' => 'Wulan Ayodya',
-        //     'image' => '1681005665_6 umkm.jpg'
+        //     'image' => '1681005665_6 umkm.jpg',
+        //     'dokumen' => ''
         // ]);
         // BukuModel::create([
         //     'rakbuku_id' => '4',
@@ -127,8 +135,10 @@ class DatabaseSeeder extends Seeder
         //     'kode_isbn' => '978-602-5780-12-7',
         //     'judul_buku' => 'Perahu',
         //     'pengarang' => 'Conie Sema',
-        //     'image' => '1681005682_7 novel.jpg'
+        //     'image' => '1681005682_7 novel.jpg',
+        //     'dokumen' => ''
         // ]);
+
         // BukuModel::create([
         //     'rakbuku_id' => '4',
         //     'kategoribuku_id' => '4',
